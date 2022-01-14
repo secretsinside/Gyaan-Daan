@@ -1,20 +1,18 @@
 <div class="login-form">
     <form>
-        <p class="login-form-field">
+        <div class="login-form-field">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input matInput placeholder="email@example.com"
+                    (keyup)="invalidEmail = false;"
                     (blur)="onBlur($event, 'email')"
                     name="email"
                     [value]="userEmail">
+                <mat-hint *ngIf="invalidEmail">{{ emailErrorMsg }}</mat-hint>             
             </mat-form-field>
-            <!-- <app-error-message *ngIf="invalidEmail"
-                [errorMessage]="config.emailError.invalidPattern">
-            </app-error-message> -->
-        </p>
+        </div>
         
-        
-        <p class="login-form-field">
+        <div class="login-form-field">
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text' "
@@ -24,21 +22,25 @@
                     (click)="hide = !hide">                    
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-hint *ngIf="invalidPassword">{{ passwordErrorMsg }}</mat-hint>             
             </mat-form-field>
-        </p>
+        </div>
         
-        <p class="login-form-field">
+        <div class="login-form-field">
             <mat-button-toggle-group name="userType">
-                <mat-button-toggle value="Student" (click)="isUserStudent=true; isUserVolunteer=false;">Student</mat-button-toggle>
-                <mat-button-toggle value="Volunteer" (click)="isUserStudent=false; isUserVolunteer=true;">Volunteer</mat-button-toggle>
+                <mat-button-toggle value="Student" (click)="isUserStudent=true; isUserVolunteer=false; invalidUserType = false;">Student</mat-button-toggle>
+                <mat-button-toggle value="Volunteer" (click)="isUserStudent=false; isUserVolunteer=true; invalidUserType = false;">Volunteer</mat-button-toggle>
             </mat-button-toggle-group>
-        </p>
+            <p class="user-type-error-message" *ngIf="invalidUserType">
+                {{ constant.userTypeError.noselection }}
+            </p>
+        </div>
 
-        <p class="login-form-field">
+        <div class="login-form-field">
             <button mat-raised-button class="submit-button"
                 (click)="submitForm()">
                 Login
             </button>
-        </p>
+        </div>
     </form>
 </div>

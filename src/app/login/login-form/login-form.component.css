@@ -14,10 +14,28 @@
     width: 200px;
     height: 50px;
     border-radius: 100px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.mat-hint {
+    color: red;
+}
+
+.user-type-error-message {
+    margin-top: 1%;
+    margin-left: 27%;
+    font-size: 75%;
+    color: red;
+    text-align: left;
 }
 
 @media screen and (max-width: 700px) {
     .mat-form-field, .mat-button-toggle-group, .mat-button-toggle {
         width: 90%;
+    }
+
+    .user-type-error-message {
+        margin-left: 7%;
     }
 }

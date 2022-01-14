@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CONFIG } from 'src/app/app.config';
+import { CONFIG, CONSTANT } from 'src/app/app.config';
 
 @Component({
   selector: 'app-login-form',
@@ -9,6 +9,7 @@ import { CONFIG } from 'src/app/app.config';
 export class LoginFormComponent implements OnInit {
 
   config: any;
+  constant: any;
   hide: boolean;
   userEmail: String;
   userPassword: String;
@@ -16,6 +17,10 @@ export class LoginFormComponent implements OnInit {
   isUserVolunteer: Boolean;
 
   invalidEmail: Boolean;
+  emailErrorMsg: String;
+  invalidPassword: Boolean;
+  passwordErrorMsg: String;
+  invalidUserType: Boolean;
 
   constructor() { 
     this.userEmail = "";
@@ -24,8 +29,13 @@ export class LoginFormComponent implements OnInit {
     this.isUserStudent = false;
     this.isUserVolunteer = false;
     this.config = CONFIG;
+    this.constant = CONSTANT;
 
     this.invalidEmail = false;
+    this.emailErrorMsg = "";
+    this.invalidPassword = false;
+    this.passwordErrorMsg = "";
+    this.invalidUserType = false;
   }
 
   ngOnInit(): void {
@@ -35,8 +45,12 @@ export class LoginFormComponent implements OnInit {
     console.log("Student : " + this.isUserStudent + " and Volunteer: " + this.isUserVolunteer);
     if(fieldName === 'email') {
       this.userEmail = event.target.value;
-      if(!this.userEmail.match(this.config.emailPattern)){
+      if(this.userEmail === ""){
         this.invalidEmail = true;
+        this.emailErrorMsg = this.constant.emailError.required;
+      }else if(!this.userEmail.match(this.config.emailPattern)){
+        this.invalidEmail = true;
+        this.emailErrorMsg = this.constant.emailError.invalidPattern;
       }else {
         this.invalidEmail = false;
       }
@@ -44,12 +58,28 @@ export class LoginFormComponent implements OnInit {
     }
     if(fieldName === "password") {
       this.userPassword = event.target.value;
+      if(this.userPassword === "") {
+        this.invalidPassword = true;
+        this.passwordErrorMsg = this.constant.passwordError.required;
+      }else if(this.userPassword.length < this.config.password.minLength){
+        this.invalidPassword = true;
+        this.passwordErrorMsg = this.constant.passwordError.minLength;
+        this.passwordErrorMsg = this.passwordErrorMsg.replace("<x>", this.config.password.minLength);
+      }else if(this.userPassword.length > this.config.password.maxLength){
+        this.invalidPassword = true;
+        this.passwordErrorMsg = this.constant.passwordError.maxLength;
+        this.passwordErrorMsg = this.passwordErrorMsg.replace("<x>", this.config.password.maxLength);
+      }else{
+        this.invalidPassword = false;
+      }
     }
   }
 
-  submitForm(): void {    
-    let request = this.prepareRequest();
-    console.log(request);
+  submitForm(): void {
+    if(this.isFormValid()) {
+      let request = this.prepareRequest();
+      console.log(request);
+    }
   }
 
   prepareRequest(): any {
@@ -59,6 +89,19 @@ export class LoginFormComponent implements OnInit {
       "student" : this.isUserStudent,
       "volunteer" : this.isUserVolunteer
     }
+  }
+
+  isFormValid(): Boolean {
+    if(!this.isUserStudent && !this.isUserVolunteer){
+      this.invalidUserType = true;
+      return false;
+    }
+
+    if(this.invalidEmail || this.invalidPassword){
+      return false;
+    }
+
+    return true;
   }
 
 }

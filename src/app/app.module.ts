@@ -15,15 +15,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { ErrorMessageComponent } from './util/error-message/error-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginFormComponent,
-    SignupFormComponent,
-    ErrorMessageComponent
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,
