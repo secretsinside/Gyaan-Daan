@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CONFIG, CONSTANT } from 'src/app/app.config';
+import { LoginSignupService } from '../login-signup-service.service';
 
 @Component({
   selector: 'app-login-form',
@@ -22,7 +23,7 @@ export class LoginFormComponent implements OnInit {
   passwordErrorMsg: String;
   invalidUserType: Boolean;
 
-  constructor() { 
+  constructor(private loginSignupService: LoginSignupService) { 
     this.userEmail = "";
     this.userPassword = "";
     this.hide = true;
@@ -32,9 +33,9 @@ export class LoginFormComponent implements OnInit {
     this.constant = CONSTANT;
 
     this.invalidEmail = false;
-    this.emailErrorMsg = "";
+    this.emailErrorMsg = this.constant.emailError.required;
     this.invalidPassword = false;
-    this.passwordErrorMsg = "";
+    this.passwordErrorMsg = this.constant.passwordError.required;
     this.invalidUserType = false;
   }
 
@@ -79,6 +80,14 @@ export class LoginFormComponent implements OnInit {
     if(this.isFormValid()) {
       let request = this.prepareRequest();
       console.log(request);
+      this.loginSignupService.loginUser(request).subscribe(
+        (data: any) => {
+
+        },
+        (error: any) => {
+
+        }
+      )
     }
   }
 
@@ -92,12 +101,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   isFormValid(): Boolean {
-    if(!this.isUserStudent && !this.isUserVolunteer){
-      this.invalidUserType = true;
+    if(this.userEmail === "" || this.invalidEmail){
+      this.invalidEmail = true;
       return false;
     }
-
-    if(this.invalidEmail || this.invalidPassword){
+    if(this.userPassword === "" || this.invalidPassword){
+      this.invalidPassword = true;
+      return false;
+    }
+    if(!this.isUserStudent && !this.isUserVolunteer){
+      this.invalidUserType = true;
       return false;
     }
 
