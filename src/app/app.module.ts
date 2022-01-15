@@ -16,13 +16,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './student/dashboard/dashboard.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     MatButtonToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule
   ],
   providers: [],

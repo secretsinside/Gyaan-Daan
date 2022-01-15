@@ -15,9 +15,20 @@ export const CONSTANT: any = {
     "passwordError": {
         "required": "Password cannot be blank.",
         "minLength": "Password should be atleast <x> characters long.",
-        "maxLength": "Password should not exceed <x> characters."
+        "maxLength": "Password should not exceed <x> characters.",
+        "confirmPasswordNotMatching": "Passwords not matching."
     },
     "userTypeError": {
         "noselection": "Please select how want to login as."
     }
 }
+
+export const DATE_FORMATS = {
+    parse: {
+      dateInput: 'DD-MM-YYYY',
+    },
+    display: {
+      dateInput: 'DD-MM-YYYY',
+      monthYearLabel: 'MMMM YYYY',
+    },
+};
