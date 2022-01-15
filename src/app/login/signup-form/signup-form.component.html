@@ -1,0 +1,73 @@
+<div class="signup-form">
+    <form>
+        <div class="signup-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="email@example.com"
+                    (blur)="onBlur($event, 'email')"
+                    name="email"
+                    [value]="userEmail">
+                <mat-hint *ngIf="invalidEmail">{{ emailErrorMsg }}</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="signup-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput 
+                    [type]="hidePassword ? 'password' : 'text' "
+                    (blur)="onBlur($event, 'password')"
+                    [value]="userPassword">
+                <button mat-icon-button matSuffix 
+                    (click)="hidePassword = !hidePassword">                    
+                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint *ngIf="invalidPassword">{{ passwordErrorMsg }}</mat-hint>             
+            </mat-form-field>
+        </div>
+
+        <div class="signup-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Confirm password</mat-label>
+                <input matInput 
+                    [type]="hideConfirmPassword ? 'password' : 'text' "
+                    (blur)="onBlur($event, 'confirmPassword')"
+                    [value]="userConfirmPassword">
+                <button mat-icon-button matSuffix 
+                    (click)="hideConfirmPassword = !hideConfirmPassword">                    
+                    <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint *ngIf="invalidConfirmPassword">{{ confirmPasswordErrorMsg }}</mat-hint>             
+            </mat-form-field>
+        </div>
+
+        <div class="signup-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Date of birth</mat-label>
+                <input matInput 
+                    [matDatepicker]="picker"
+                    (dateInput)="handleDate($event)"
+                    (dateChange)="handleDate($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="signup-form-field">
+            <mat-button-toggle-group name="userType">
+                <mat-button-toggle value="Student" (click)="isUserStudent=true; isUserVolunteer=false; invalidUserType = false;">I'm student</mat-button-toggle>
+                <mat-button-toggle value="Volunteer" (click)="isUserStudent=false; isUserVolunteer=true; invalidUserType = false;">I'm volunteer</mat-button-toggle>
+            </mat-button-toggle-group>
+            <p class="user-type-error-message" *ngIf="invalidUserType">
+                {{ constant.userTypeError.noselection }}
+            </p>
+        </div>
+
+        <div class="signup-form-field">
+            <button mat-raised-button class="submit-button"
+                (click)="submitForm()">
+                Signup
+            </button>
+        </div>
+    </form>
+</div>
