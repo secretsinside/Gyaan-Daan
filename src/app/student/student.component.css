@@ -1,0 +1,37 @@
+.navigator-container {
+    height: 90%;
+    position: absolute;
+}
+
+.navigator {
+    min-width: 20vw;
+    height: 100%;
+}
+
+.user-name {
+    margin: 10% 0% 10% 2%;
+}
+
+.side-menu, .footer-logout {
+    text-align: center;
+}
+
+.side-menu-button {
+    margin-top: 5%;
+    width: 50%;
+}
+
+.footer-logout {
+    margin-top: 30%;
+    width: 100%;
+}
+
+.logout-button {
+    border-radius: 100px;
+    width: 50%;
+}
+
+.main-content {
+    width: 80vw;
+    background-color: rgb(203, 244, 248);
+}

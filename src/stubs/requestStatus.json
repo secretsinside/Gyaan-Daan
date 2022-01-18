@@ -1,0 +1,19 @@
+{
+    "responseInfo": [
+        {
+            "requestId": "123",
+            "day": "Mon",
+            "status": "PENDING"
+        },
+        {
+            "requestId": "342",
+            "day": "Wed",
+            "status": "ACCEPTED"
+        },
+        {
+            "requestId": "453",
+            "day": "Mon",
+            "status": "DECLINED"
+        }
+    ]
+}

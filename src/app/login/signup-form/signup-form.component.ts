@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import { CONFIG, CONSTANT } from 'src/app/app.config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-form',
@@ -32,7 +33,7 @@ export class SignupFormComponent implements OnInit {
   hidePassword: Boolean;
   hideConfirmPassword: Boolean;
 
-  constructor() {
+  constructor(private router: Router) {
     this.config = CONFIG;
     this.constant = CONSTANT;
     this.userEmail = "";
@@ -118,7 +119,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   submitForm(): void {
-
+    this.router.navigate(['/student']);
   }
 
 }

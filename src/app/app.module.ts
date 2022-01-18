@@ -19,6 +19,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './student/dashboard/dashboard.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { StudentComponent } from './student/student.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ProfileComponent } from './student/profile/profile.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { NewRequestComponent } from './student/dashboard/new-request/new-request.component';
+import {MatSelectModule} from '@angular/material/select';
+import { PastRequestComponent } from './student/dashboard/past-request/past-request.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     LoginComponent,
     LoginFormComponent,
     SignupFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    StudentComponent,
+    ProfileComponent,
+    NewRequestComponent,
+    PastRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +54,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatButtonToggleModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatSelectModule,
     HttpClientModule
   ],
   providers: [],

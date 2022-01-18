@@ -8,6 +8,11 @@ export const CONFIG: any = {
 }
 
 export const CONSTANT: any = {
+    "student": {
+        "DASHBOARD": "Dashboard",
+        "PROFILE": "Profile",
+        
+    },
     "emailError": {
         "required": "Email cannot be blank.",
         "invalidPattern": "Enter email in valid format."
@@ -20,7 +25,14 @@ export const CONSTANT: any = {
     },
     "userTypeError": {
         "noselection": "Please select how want to login as."
-    }
+    },
+    "subjects": {
+        "Maths" : ["Trigonometry", "Calculus"],
+        "English" : ["Grammar", "Literature"],
+        "Science" : [""],
+        "Physics" : ["Gravitation", "Laws of Motion"]
+    },
+    "classes": ["5", "6", "7", "8", "9", "10", "11", "12"]
 }
 
 export const DATE_FORMATS = {

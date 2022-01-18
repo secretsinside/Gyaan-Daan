@@ -1,0 +1,13 @@
+.dashboard-content {
+    margin-top: 5%;
+    text-align: center;
+    width: 100%;
+}
+
+.request-history-button {
+    border-radius: 100px;
+}
+
+.divider {
+    margin: 2% 0% 2% 0%;
+}
