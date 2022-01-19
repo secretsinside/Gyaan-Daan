@@ -1,0 +1,46 @@
+.profile-container {
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+.profile-card {
+    width: 70%;
+    text-align: left;
+}
+
+.user-name {
+    font-size: 2em;
+}
+
+.user-name, .user-type {
+    text-align: left;
+}
+
+.profile-other-detail {
+    display: flex;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
+.profile-label {
+    width: 20%;
+}
+
+.profile-value {
+    width: 70%;
+}
+
+.divider {
+    margin-top: 2%;
+}
+
+.verification {
+    color: green;
+    text-align: center;
+    width: 10%;
+}
+
+.other-details, .preferences {
+    margin-top: 3%;
+}

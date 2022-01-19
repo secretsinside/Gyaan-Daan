@@ -1,1 +1,51 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <mat-card class="profile-card">
+        <div class="user-name">
+            {{ userDetail.name }}
+        </div>
+        <div class="user-type">
+            {{ userDetail.userType | titlecase }}
+        </div>
+
+        <div class="divider">
+            <mat-divider></mat-divider>
+        </div>
+
+        <div class="other-details">
+        
+            <div class="email profile-other-detail">
+                <div class="profile-label"> Email </div>
+                <div class="profile-value"> {{ userDetail.email }} </div>
+                <div class="verification">
+                    <mat-icon *ngIf="userDetail.verified.email">check_circle</mat-icon>                    
+                    <button mat-button color="warn" class="not-verified" *ngIf="!userDetail.verified.email">Verify</button> 
+                </div>
+
+            </div>
+
+            <div class="phone-number profile-other-detail">
+                <div class="profile-label"> Phone Number </div>
+                <div class="profile-value"> {{ userDetail.phoneNumber }} </div>
+                <div class="verification">
+                    <mat-icon *ngIf="userDetail.verified.phoneNumber">check_circle</mat-icon>
+                    <button mat-button color="warn" class="not-verified" *ngIf="!userDetail.verified.phoneNumber">Verify</button> 
+                </div>
+            </div>
+
+            <div class="dob profile-other-detail">
+                <div class="profile-label"> Date of birth </div>
+                <div class="profile-value"> {{ userDetail.dob }} </div>
+            </div>
+
+        </div>
+
+        <div class="divider">
+            <mat-divider></mat-divider>
+        </div>
+
+        <div class="preferences">
+            Preferences
+        </div>
+
+    </mat-card>
+</div>

@@ -1,0 +1,13 @@
+{
+    "responseInfo": {
+        "name": "Rohit Kumar",
+        "userType": "student",
+        "email": "email@something.com",
+        "dob": "14/01/1995",
+        "phoneNumber": "+91-9995599955",
+        "verified": {
+            "phoneNumber": false,
+            "email": true
+        }
+    }
+}

@@ -2,17 +2,20 @@
     "responseInfo": [
         {
             "requestId": "123",
-            "day": "Mon",
+            "subject": "Maths",
+            "day": "",
             "status": "PENDING"
         },
         {
             "requestId": "342",
+            "subject": "Science",
             "day": "Wed",
             "status": "ACCEPTED"
         },
         {
             "requestId": "453",
-            "day": "Mon",
+            "subject": "Physics",
+            "day": "",
             "status": "DECLINED"
         }
     ]

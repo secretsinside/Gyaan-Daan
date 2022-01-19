@@ -1,0 +1,22 @@
+.request-status {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.request-status-card {
+    text-align: left;
+    margin-top: 1%;    
+    display: flex;
+}
+
+.subject {
+    width: 40%;
+}
+
+.status {
+    width: 30%;
+}
+
+.day {
+    width: 30%;
+}

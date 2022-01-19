@@ -1,6 +1,13 @@
 <div class="dashboard-content">
-    <button mat-raised-button class="request-history-button"
-        (click)="seeRequestStatus = true;">Request status</button>
+    <button mat-raised-button *ngIf="!seeRequestStatus"
+        class="request-history-button"
+        (click)="seeRequestStatus = true;">Request status
+    </button>
+
+    <button mat-raised-button *ngIf="seeRequestStatus"
+        class="request-history-button"
+        (click)="seeRequestStatus = false;">Back
+    </button>
     <mat-divider class="divider"></mat-divider>
     <app-new-request *ngIf="!seeRequestStatus"></app-new-request>
     <app-past-request *ngIf="seeRequestStatus"></app-past-request>

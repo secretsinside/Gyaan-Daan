@@ -1,7 +1,9 @@
 <div class="past-request-container">
     <div class="request-status">
         <mat-card *ngFor="let s of requestStatus" class="request-status-card">
-            {{ s.status }}
+            <div class="subject">{{ s.subject }}</div>
+            <div class="status {{s.status}}">{{ s.status }}</div>
+            <div class="day" *ngIf="s.status === 'ACCEPTED' ">{{ s.day }}</div>
         </mat-card>
     </div>
 </div>

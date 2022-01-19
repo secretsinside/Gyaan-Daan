@@ -15,7 +15,8 @@
 
         <div class="side-menu">
             <div *ngFor="let option of studentSideOptions">
-                <button mat-button class="side-menu-button"> {{ option }}</button>
+                <button mat-button class="side-menu-button"
+                    (click)="contentWindow = option;"> {{ option }}</button>
             </div>
         </div>
 
