@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CONSTANT } from '../app.config';
+import { CONFIG, CONSTANT } from '../app.config';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-student',
@@ -8,6 +9,7 @@ import { CONSTANT } from '../app.config';
 })
 export class StudentComponent implements OnInit {
 
+  config: any;
   constant: any;
 
   sideNavOpen: boolean;
@@ -15,11 +17,12 @@ export class StudentComponent implements OnInit {
   contentWindow: String;
   studentSideOptions: String[];
 
-  constructor() {
+  constructor(private deviceService: DeviceDetectorService) {
+    this.config = CONFIG;
     this.constant = CONSTANT;
 
     this.sideNavOpen = true;
-    this.isMobileDevice = false;
+    this.isMobileDevice = this.deviceService.isMobile();
     this.contentWindow = this.constant.student.DASHBOARD;
     this.studentSideOptions = [];
   }
@@ -30,6 +33,27 @@ export class StudentComponent implements OnInit {
       this.studentSideOptions.push(this.constant.student[k]);
     }
     
+  }
+
+  openSideNav(): void {
+    this.sideNavOpen = true;
+  }
+
+  closeSideNav() {
+    this.sideNavOpen = this.isMobileDevice ? false : true;
+  }
+
+  onResize(event: any) {
+    this.setSidenavToggleAble(event.target.innerWidth);
+  }
+
+  setSidenavToggleAble(width: number){
+    if(width < this.config.mobileWidth){
+      this.isMobileDevice = true;
+    }else{
+      this.isMobileDevice = false;
+      this.sideNavOpen = true;
+    }
   }
 
 }

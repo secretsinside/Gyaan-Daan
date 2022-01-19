@@ -20,3 +20,14 @@
 .day {
     width: 30%;
 }
+
+@media screen and (max-width: 700px) {
+    .past-request-container {
+        text-align: center;
+    }
+
+    .request-status {
+        width: 90%;
+        margin-left: 5%;
+    }
+}

@@ -1,4 +1,4 @@
-<mat-sidenav-container class="navigator-container">
+<mat-sidenav-container class="navigator-container" (window:resize)="onResize($event)">
     <mat-sidenav
         [(opened)]="sideNavOpen"
         [disableClose]="!isMobileDevice"
@@ -16,7 +16,7 @@
         <div class="side-menu">
             <div *ngFor="let option of studentSideOptions">
                 <button mat-button class="side-menu-button"
-                    (click)="contentWindow = option;"> {{ option }}</button>
+                    (click)="contentWindow = option; closeSideNav()"> {{ option }}</button>
             </div>
         </div>
 
@@ -26,6 +26,12 @@
     
     </mat-sidenav>
     <mat-sidenav-content class="main-content">
+        <div class="sidenav-open-close-button" *ngIf="isMobileDevice">
+            <button mat-icon-button 
+                (click)="openSideNav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
         <app-dashboard *ngIf="contentWindow === constant.student.DASHBOARD"></app-dashboard>
         <app-profile  *ngIf="contentWindow === constant.student.PROFILE"></app-profile>
     </mat-sidenav-content>
