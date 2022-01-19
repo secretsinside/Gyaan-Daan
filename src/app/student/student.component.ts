@@ -32,6 +32,8 @@ export class StudentComponent implements OnInit {
     for(let k in this.constant.student) {
       this.studentSideOptions.push(this.constant.student[k]);
     }
+
+    this.sideNavOpen = this.isMobileDevice ? false : true;
     
   }
 
