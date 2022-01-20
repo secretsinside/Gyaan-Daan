@@ -1,0 +1,22 @@
+{
+    "responseInfo": [
+        {
+            "requestId": "123",
+            "subject": "Maths",
+            "day": "",
+            "status": "PENDING"
+        },
+        {
+            "requestId": "342",
+            "subject": "Science",
+            "day": "Wed",
+            "status": "ACCEPTED"
+        },
+        {
+            "requestId": "453",
+            "subject": "Physics",
+            "day": "",
+            "status": "DECLINED"
+        }
+    ]
+}

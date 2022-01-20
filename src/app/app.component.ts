@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // userAuthenticated: boolean;
   title = 'Gyaan-Daan';
+
+  constructor() {
+    // this.userAuthenticated = false;
+  }
 }

@@ -1,0 +1,38 @@
+<div class="new-request-container">
+    <form>
+        <div class="new-req-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Subject</mat-label>
+                <mat-select placeholder="Subject">
+                  <mat-option *ngFor="let s of subjects"
+                    [value]="selectedSubject"
+                    >
+                    {{ s }}
+                  </mat-option>
+                </mat-select>
+                <mat-hint *ngIf="invalidSubject">{{ subjectDropdownError }}</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="new-req-form-field">
+            <mat-form-field appearance="outline">
+                <mat-label>Class</mat-label>
+                <mat-select placeholder="Class">
+                  <mat-option *ngFor="let c of classes"
+                    [value]="c"
+                    >
+                    {{ c }}
+                  </mat-option>
+                </mat-select>
+                <mat-hint *ngIf="invalidClass">{{ classDropdownError }}</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="new-req-form-field">
+            <button mat-raised-button class="submit-button round-button"
+                (click)="submitForm()">
+                Send request
+            </button>
+        </div>
+    </form>
+</div>

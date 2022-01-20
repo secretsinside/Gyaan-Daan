@@ -1,0 +1,33 @@
+.request-status {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.request-status-card {
+    text-align: left;
+    margin-top: 1%;    
+    display: flex;
+}
+
+.subject {
+    width: 40%;
+}
+
+.status {
+    width: 30%;
+}
+
+.day {
+    width: 30%;
+}
+
+@media screen and (max-width: 700px) {
+    .past-request-container {
+        text-align: center;
+    }
+
+    .request-status {
+        width: 90%;
+        margin-left: 5%;
+    }
+}

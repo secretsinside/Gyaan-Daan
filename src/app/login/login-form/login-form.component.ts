@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CONFIG, CONSTANT } from 'src/app/app.config';
 import { LoginSignupService } from '../login-signup-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -23,7 +24,8 @@ export class LoginFormComponent implements OnInit {
   passwordErrorMsg: String;
   invalidUserType: Boolean;
 
-  constructor(private loginSignupService: LoginSignupService) { 
+  constructor(private loginSignupService: LoginSignupService,
+    private router: Router) { 
     this.userEmail = "";
     this.userPassword = "";
     this.hide = true;
@@ -80,14 +82,15 @@ export class LoginFormComponent implements OnInit {
     if(this.isFormValid()) {
       let request = this.prepareRequest();
       console.log(request);
-      this.loginSignupService.loginUser(request).subscribe(
-        (data: any) => {
+      this.router.navigate(["/student"]);
+      // this.loginSignupService.loginUser(request).subscribe(
+      //   (data: any) => {
 
-        },
-        (error: any) => {
+      //   },
+      //   (error: any) => {
 
-        }
-      )
+      //   }
+      // )
     }
   }
 

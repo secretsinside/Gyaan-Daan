@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  seeRequestStatus: boolean;
+
+  constructor() {
+    this.seeRequestStatus = false;
+  }
 
   ngOnInit(): void {
   }

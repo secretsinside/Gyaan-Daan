@@ -1,0 +1,88 @@
+.profile-container {
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+.profile-card {
+    width: 70%;
+    text-align: left;
+}
+
+.user-name {
+    font-size: 2em;
+}
+
+.user-name, .user-type {
+    text-align: left;
+}
+
+.profile-other-detail {
+    display: flex;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
+.profile-label {
+    width: 20%;
+}
+
+.profile-value {
+    width: 70%;
+}
+
+.divider {
+    margin-top: 2%;
+}
+
+.verification {
+    color: green;
+    text-align: center;
+    width: 10%;
+}
+
+.other-details, .preferences {
+    margin-top: 3%;
+}
+
+@media screen and (max-width: 700px) {
+    .profile-container {
+        margin-left: 5%;
+    }
+
+    .profile-card {
+        width: 80vw;
+        text-align: left;
+    }
+
+    
+    .user-name {
+        font-size: 1.5em;
+    }
+
+    .profile-label {
+        width: 20vw;
+        font-size: 0.75em;
+    }
+
+    .user-type {
+        font-size: 0.75em;
+    }
+
+    .profile-value {
+        font-size: 0.8em;
+        width: 40vw;
+    }
+
+    .verified {
+        transform: scale(0.6);
+    }
+
+    .preferences {
+        font-size: 0.75em;
+    }
+
+    .verification {
+        width: 20vw;
+    }
+}
