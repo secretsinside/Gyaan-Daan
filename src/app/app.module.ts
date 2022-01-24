@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { TimeSlotModal } from '../util/time-slot-modal/time-slot-modal.component';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -26,6 +27,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { NewRequestComponent } from './student/dashboard/new-request/new-request.component';
 import {MatSelectModule} from '@angular/material/select';
 import { PastRequestComponent } from './student/dashboard/past-request/past-request.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { PastRequestComponent } from './student/dashboard/past-request/past-requ
     StudentComponent,
     ProfileComponent,
     NewRequestComponent,
-    PastRequestComponent
+    PastRequestComponent,
+    TimeSlotModal
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { PastRequestComponent } from './student/dashboard/past-request/past-requ
     MatSidenavModule,
     MatDividerModule,
     MatSelectModule,
+    MatChipsModule,
+    MatDialogModule,
     HttpClientModule
   ],
   providers: [],

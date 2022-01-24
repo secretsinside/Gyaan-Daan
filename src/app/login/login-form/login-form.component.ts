@@ -79,9 +79,9 @@ export class LoginFormComponent implements OnInit {
   }
 
   submitForm(): void {
-    if(this.isFormValid()) {
-      let request = this.prepareRequest();
-      console.log(request);
+    // if(this.isFormValid()) {
+    //   let request = this.prepareRequest();
+    //   console.log(request);
       this.router.navigate(["/student"]);
       // this.loginSignupService.loginUser(request).subscribe(
       //   (data: any) => {
@@ -91,7 +91,7 @@ export class LoginFormComponent implements OnInit {
 
       //   }
       // )
-    }
+    // }
   }
 
   prepareRequest(): any {
