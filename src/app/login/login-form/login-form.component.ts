@@ -79,10 +79,26 @@ export class LoginFormComponent implements OnInit {
   }
 
   submitForm(): void {
-    if(this.isFormValid()) {
-      let request = this.prepareRequest();
-      console.log(request);
-      this.router.navigate(["/student"]);
+    // if(this.isFormValid()) {
+    //   let request = this.prepareRequest();
+    //   console.log(request);
+      
+    if(this.isUserStudent){
+      this.router.navigate(["/student"], {
+        state: {
+          "userEmail": this.userEmail,
+          "userType": 'student'
+        }
+      });
+    }else{
+      this.router.navigate(["/volunteer"], {
+        state: {
+          "userEmail": this.userEmail,
+          "userType": 'volunteer'
+        }
+      });
+    }
+    
       // this.loginSignupService.loginUser(request).subscribe(
       //   (data: any) => {
 
@@ -91,7 +107,7 @@ export class LoginFormComponent implements OnInit {
 
       //   }
       // )
-    }
+    // }
   }
 
   prepareRequest(): any {

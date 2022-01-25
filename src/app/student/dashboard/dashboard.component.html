@@ -9,6 +9,6 @@
         (click)="seeRequestStatus = false;">Back
     </button>
     <mat-divider class="divider"></mat-divider>
-    <app-new-request *ngIf="!seeRequestStatus"></app-new-request>
-    <app-past-request *ngIf="seeRequestStatus"></app-past-request>
+    <app-new-request *ngIf="userDetail.userType == 'student' && !seeRequestStatus"></app-new-request>
+    <app-past-request *ngIf="userDetail.userType == 'student' && seeRequestStatus"></app-past-request>
 </div>

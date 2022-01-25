@@ -17,7 +17,7 @@
                 <div class="profile-label"> Email </div>
                 <div class="profile-value"> {{ userDetail.email }} </div>
                 <div class="verification">
-                    <mat-icon class="verified" *ngIf="userDetail.verified.email">check_circle</mat-icon>                    
+                    <mat-icon class="verified" *ngIf="userDetail.verified.email">verified</mat-icon>                    
                     <button mat-button color="warn" class="not-verified" *ngIf="!userDetail.verified.email">Verify</button> 
                 </div>
 
@@ -27,7 +27,7 @@
                 <div class="profile-label"> Phone </div>
                 <div class="profile-value"> {{ userDetail.phoneNumber }} </div>
                 <div class="verification">
-                    <mat-icon *ngIf="userDetail.verified.phoneNumber">check_circle</mat-icon>
+                    <mat-icon class="verified" *ngIf="userDetail.verified.phoneNumber">verified</mat-icon>
                     <button mat-button color="warn" class="not-verified" *ngIf="!userDetail.verified.phoneNumber">Verify</button> 
                 </div>
             </div>
@@ -45,6 +45,27 @@
 
         <div class="preferences">
             Preferences
+
+            <div class="weekly-time-slot">
+                <mat-form-field *ngFor="let day of days" class="time-slot-chip" appearance="outline">
+                    <mat-label>{{day}}</mat-label>
+                    <mat-chip-list #chipList>
+                        <mat-chip class="add-chip">
+                            <button mat-icon-button class="slot-add-button"
+                                (click)="addSlot(day)">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </mat-chip>
+                            
+                        <mat-chip *ngFor="let slot of slots[day]" (removed)="removeSlot(day, slot)">
+                        {{slot}}
+                        <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                        </mat-chip>
+                    </mat-chip-list>
+                  </mat-form-field>
+            </div>
         </div>
 
     </mat-card>

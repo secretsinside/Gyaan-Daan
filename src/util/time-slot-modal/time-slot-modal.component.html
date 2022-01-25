@@ -1,0 +1,34 @@
+<div class="time-slot-container">
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>From</mat-label>
+            <input matInput
+                type="time"
+                name="fromHour"
+                (blur)="onBlur($event, 'fromTime')"
+                [value]="fromTime">
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>To</mat-label>
+            <input matInput
+                type="time"
+                name="fromHour"
+                (blur)="onBlur($event, 'toTime')"
+                [value]="toTime">
+        </mat-form-field>
+
+        <p class="time-slot-error"
+            *ngIf="invalidTime">
+            Please enter correct time in both fields.
+        </p>
+    </div>
+
+    <div>
+        <button mat-raised-button
+            (click)="addTime()">
+            Add
+        </button>
+    </div>
+    
+</div>
