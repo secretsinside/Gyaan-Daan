@@ -27,7 +27,7 @@
                 <div class="profile-label"> Phone </div>
                 <div class="profile-value"> {{ userDetail.phoneNumber }} </div>
                 <div class="verification">
-                    <mat-icon *ngIf="userDetail.verified.phoneNumber">verified</mat-icon>
+                    <mat-icon class="verified" *ngIf="userDetail.verified.phoneNumber">verified</mat-icon>
                     <button mat-button color="warn" class="not-verified" *ngIf="!userDetail.verified.phoneNumber">Verify</button> 
                 </div>
             </div>
