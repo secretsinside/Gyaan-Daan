@@ -1,0 +1,13 @@
+{
+    "responseInfo": {
+        "name": "Varsha P Dave",
+        "userType": "volunteer",
+        "email": "email@volunteer.com",
+        "dob": "14/01/1995",
+        "phoneNumber": "+91-9998976955",
+        "verified": {
+            "phoneNumber": true,
+            "email": true
+        }
+    }
+}

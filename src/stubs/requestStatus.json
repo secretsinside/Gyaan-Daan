@@ -4,19 +4,25 @@
             "requestId": "123",
             "subject": "Maths",
             "day": "",
-            "status": "PENDING"
+            "status": "STARTED"
         },
         {
             "requestId": "342",
             "subject": "Science",
             "day": "Wed",
-            "status": "ACCEPTED"
+            "status": "DONE"
         },
         {
             "requestId": "453",
             "subject": "Physics",
             "day": "",
-            "status": "DECLINED"
+            "status": "NOT_FOUND"
+        },
+        {
+            "requestId": "453",
+            "subject": "Physics",
+            "day": "",
+            "status": "SUBMITTED"
         }
     ]
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import {MatDialog} from '@angular/material/dialog';
 import { TimeSlotModal } from 'src/util/time-slot-modal/time-slot-modal.component';
@@ -10,7 +10,7 @@ import { TimeSlotModal } from 'src/util/time-slot-modal/time-slot-modal.componen
 })
 export class ProfileComponent implements OnInit {
 
-  userDetail: any;
+  @Input() userDetail: any;
   userEmail: any;
   slots: any;
   days: any[];
@@ -25,15 +25,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.studentService.getUserDetail(this.userEmail).subscribe(
-      (data: any) => {
-        this.userDetail = data.responseInfo;
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
 
     this.studentService.getPreferredSlots(this.userDetail.name).subscribe(
       (data: any) => {

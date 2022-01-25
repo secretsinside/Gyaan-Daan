@@ -18,6 +18,11 @@ const routes: Routes = [
     path: 'student',
     component: StudentComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'volunteer',
+    component: StudentComponent,
+    pathMatch: 'full'
   }
 ];
 

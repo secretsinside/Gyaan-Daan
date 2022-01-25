@@ -8,7 +8,7 @@
 
         <div class="user-name">
             <!-- To be bind with api response -->
-            API RESPONSE NAME
+            {{ userDetail.name }}
         </div>
 
         <mat-divider></mat-divider>
@@ -32,7 +32,10 @@
                 <mat-icon>menu</mat-icon>
             </button>
         </div>
-        <app-dashboard *ngIf="contentWindow === constant.student.DASHBOARD"></app-dashboard>
-        <app-profile  *ngIf="contentWindow === constant.student.PROFILE"></app-profile>
+        <app-dashboard *ngIf="contentWindow === constant.student.DASHBOARD"
+            [userDetail]="userDetail"></app-dashboard>
+
+        <app-profile  *ngIf="contentWindow === constant.student.PROFILE"
+            [userDetail]="userDetail"></app-profile>
     </mat-sidenav-content>
 </mat-sidenav-container>

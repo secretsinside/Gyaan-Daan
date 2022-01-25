@@ -82,7 +82,23 @@ export class LoginFormComponent implements OnInit {
     // if(this.isFormValid()) {
     //   let request = this.prepareRequest();
     //   console.log(request);
-      this.router.navigate(["/student"]);
+      
+    if(this.isUserStudent){
+      this.router.navigate(["/student"], {
+        state: {
+          "userEmail": this.userEmail,
+          "userType": 'student'
+        }
+      });
+    }else{
+      this.router.navigate(["/volunteer"], {
+        state: {
+          "userEmail": this.userEmail,
+          "userType": 'volunteer'
+        }
+      });
+    }
+    
       // this.loginSignupService.loginUser(request).subscribe(
       //   (data: any) => {
 
