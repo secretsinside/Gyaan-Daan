@@ -26,8 +26,8 @@ export class AppComponent {
     let ws = new SockJS(this.url);
     this.client = Stomp.over(ws);
     let that = this;
-	
-    this.client.connect({}, function(frame: any) {
+
+    this.client.connect({userId: "sagarika.nangia@gmail.com"}, function(frame: any) {
       that.client.subscribe("/queue/volunteer/sagarika.nangia@gmail.com/notification", (message: any) => {
         console.log(message);
         if(message.body) {
