@@ -21,7 +21,8 @@
         </div>
 
         <div class="footer-logout">
-            <button mat-raised-button class="logout-button"> Logout </button>
+            <button mat-raised-button class="logout-button"
+                (click)="logout()"> Logout </button>
         </div>
     
     </mat-sidenav>
@@ -33,9 +34,11 @@
             </button>
         </div>
         <app-dashboard *ngIf="contentWindow === constant.student.DASHBOARD"
-            [userDetail]="userDetail"></app-dashboard>
+            [userDetail]="userDetail"
+            [constant]="constant"></app-dashboard>
 
         <app-profile  *ngIf="contentWindow === constant.student.PROFILE"
-            [userDetail]="userDetail"></app-profile>
+            [userDetail]="userDetail"
+            [isMobileDevice]="isMobileDevice"></app-profile>
     </mat-sidenav-content>
 </mat-sidenav-container>

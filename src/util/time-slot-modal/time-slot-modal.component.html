@@ -1,6 +1,6 @@
 <div class="time-slot-container">
-    <div>
-        <mat-form-field appearance="outline">
+    <div class="time-fields">
+        <mat-form-field appearance="outline" class="time-field">
             <mat-label>From</mat-label>
             <input matInput
                 type="time"
@@ -9,7 +9,7 @@
                 [value]="fromTime">
         </mat-form-field>
     
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="time-field">
             <mat-label>To</mat-label>
             <input matInput
                 type="time"
@@ -24,8 +24,9 @@
         </p>
     </div>
 
-    <div>
+    <div class="time-slot-button">
         <button mat-raised-button
+            class="add-slot-button"
             (click)="addTime()">
             Add
         </button>

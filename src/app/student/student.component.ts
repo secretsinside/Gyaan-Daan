@@ -3,6 +3,7 @@ import { CONFIG, CONSTANT } from '../app.config';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { StudentService } from './student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -24,7 +25,8 @@ export class StudentComponent implements OnInit {
   studentSideOptions: String[];
 
   constructor(private deviceService: DeviceDetectorService,
-    private studentService: StudentService) {
+    private studentService: StudentService,
+    private router: Router) {
     this.config = CONFIG;
     this.constant = CONSTANT;
 
@@ -77,6 +79,15 @@ export class StudentComponent implements OnInit {
       this.isMobileDevice = false;
       this.sideNavOpen = true;
     }
+  }
+
+  logout(): void {
+    this.router.navigate(["/login"], {
+      state: {
+        "userId": this.userEmail,
+        "status": "logout"
+      }
+    });
   }
 
 }

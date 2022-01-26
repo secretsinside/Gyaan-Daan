@@ -29,6 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { PastRequestComponent } from './student/dashboard/past-request/past-request.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     MatChipsModule,
     MatDialogModule,
+    MatBadgeModule,
     HttpClientModule
   ],
   providers: [],
