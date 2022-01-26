@@ -11,6 +11,8 @@ import { TimeSlotModal } from 'src/util/time-slot-modal/time-slot-modal.componen
 export class ProfileComponent implements OnInit {
 
   @Input() userDetail: any;
+  @Input() isMobileDevice: boolean = false;
+
   userEmail: any;
   slots: any;
   days: any[];
@@ -49,13 +51,14 @@ export class ProfileComponent implements OnInit {
   addSlot(day: any): void {
     const dialogRef = this.matDialog.open(TimeSlotModal,
       {
+        width: this.isMobileDevice ? "80%" : "40%", 
         data: {
           "value" : this.slots[day]}
       });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      console.log(this.slots)
+      console.log(this.slots);
     });
   }
 

@@ -1,5 +1,13 @@
+.time-fields {
+    text-align: center;
+}
+
 .time-slot-error {
     font-size: 0.8em;
     color: red;
     margin-top: 0;
+}
+
+.time-field {
+    margin: 2%;
 }

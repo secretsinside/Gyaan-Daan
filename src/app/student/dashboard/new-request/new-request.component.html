@@ -3,9 +3,10 @@
         <div class="new-req-form-field">
             <mat-form-field appearance="outline">
                 <mat-label>Subject</mat-label>
-                <mat-select placeholder="Subject">
+                <mat-select placeholder="Subject"
+                  [(value)]="selectedSubject">
                   <mat-option *ngFor="let s of subjects"
-                    [value]="selectedSubject">
+                    [value]="s">
                     {{ s }}
                   </mat-option>
                 </mat-select>
@@ -16,10 +17,10 @@
         <div class="new-req-form-field">
             <mat-form-field appearance="outline">
                 <mat-label>Class</mat-label>
-                <mat-select placeholder="Class">
+                <mat-select placeholder="Class"
+                  [(value)]="selectedClass">
                   <mat-option *ngFor="let c of classes"
-                    [value]="c"
-                    >
+                    [value]="c">
                     {{ c }}
                   </mat-option>
                 </mat-select>

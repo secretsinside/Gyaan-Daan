@@ -45,7 +45,8 @@ export const CONSTANT: any = {
         "Fri": "Friday",
         "Sat": "Saturday",
         "Sun": "Sunday"
-    }
+    },
+    "logoutMessage": "Logged out successfully."
 }
 
 export const DATE_FORMATS = {

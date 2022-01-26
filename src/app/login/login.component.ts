@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CONSTANT } from '../app.config';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  
+  notificationMessage: string;
+  notification: boolean;
+  notificationType: string;
+  constant: any;
+
+  constructor() {
+    this.notificationMessage = "";
+    this.notification = false;
+    this.notificationType = "";
+    this.constant = CONSTANT;
+  }
 
   ngOnInit(): void {
+
+    if(history?.state?.status === "logout") {
+      this.notificationMessage = this.constant.logoutMessage;
+      this.notification = true;
+      this.notificationType = "success";
+    }
+  }
+
+  closeNotification(): void {
+    this.notification = false;
+    this.notificationMessage = "";
   }
 
 }

@@ -53,7 +53,14 @@ export class NewRequestComponent implements OnInit {
     this.notification.emit({
       status: 'success',
       requestId: '123455'
-    })
+    });
+
+    this.cleanForm();
+  }
+
+  cleanForm(): void {
+    this.selectedSubject = "";
+    this.selectedClass = "";
   }
 
 }

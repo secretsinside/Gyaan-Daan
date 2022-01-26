@@ -1,3 +1,13 @@
+<div class="notification-pop-up {{notificationType}}" *ngIf="notification">
+    <p class="notification-message">
+        {{ notificationMessage }}
+    </p>
+    <button mat-icon-button class="close-notification"
+        (click)="closeNotification()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+
 <div id="navigation-tab">
     <mat-card>
         <mat-tab-group mat-align-tabs="center">
