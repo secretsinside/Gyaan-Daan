@@ -5,8 +5,7 @@
                 <mat-label>Subject</mat-label>
                 <mat-select placeholder="Subject">
                   <mat-option *ngFor="let s of subjects"
-                    [value]="selectedSubject"
-                    >
+                    [value]="selectedSubject">
                     {{ s }}
                   </mat-option>
                 </mat-select>
@@ -30,7 +29,7 @@
 
         <div class="new-req-form-field">
             <button mat-raised-button class="submit-button round-button"
-                (click)="submitForm()">
+                (click)="sendRequest()">
                 Send request
             </button>
         </div>

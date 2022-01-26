@@ -1,3 +1,13 @@
+<div class="notification-pop-up {{notificationType}}" *ngIf="notification">
+    <p class="notification-message">
+        {{ notificationMessage }} 
+    </p>
+    <button mat-icon-button class="close-notification"
+        (click)="closeNotification()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+
 <div class="dashboard-content">
     <button mat-raised-button *ngIf="!seeRequestStatus"
         class="request-history-button"
@@ -9,6 +19,7 @@
         (click)="seeRequestStatus = false;">Back
     </button>
     <mat-divider class="divider"></mat-divider>
-    <app-new-request *ngIf="userDetail.userType == 'student' && !seeRequestStatus"></app-new-request>
+    <app-new-request *ngIf="userDetail.userType == 'student' && !seeRequestStatus"
+        (notification) = "raiseNotification($event)"></app-new-request>
     <app-past-request *ngIf="userDetail.userType == 'student' && seeRequestStatus"></app-past-request>
 </div>

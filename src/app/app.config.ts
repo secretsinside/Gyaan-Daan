@@ -32,7 +32,20 @@ export const CONSTANT: any = {
         "Science" : [""],
         "Physics" : ["Gravitation", "Laws of Motion"]
     },
-    "classes": ["5", "6", "7", "8", "9", "10", "11", "12"]
+    "classes": ["5", "6", "7", "8", "9", "10", "11", "12"],
+    "newRequest" : {
+        "success" : "Your request submitted successfully.",
+        "error" : "There was problem while raising requet."
+    },
+    "days": {
+        "Mon": "Monday",
+        "Tues": "Tuesday",
+        "Wed": "Wednesday",
+        "Thu": "Thursday",
+        "Fri": "Friday",
+        "Sat": "Saturday",
+        "Sun": "Sunday"
+    }
 }
 
 export const DATE_FORMATS = {

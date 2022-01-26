@@ -33,7 +33,8 @@
             </button>
         </div>
         <app-dashboard *ngIf="contentWindow === constant.student.DASHBOARD"
-            [userDetail]="userDetail"></app-dashboard>
+            [userDetail]="userDetail"
+            [constant]="constant"></app-dashboard>
 
         <app-profile  *ngIf="contentWindow === constant.student.PROFILE"
             [userDetail]="userDetail"></app-profile>

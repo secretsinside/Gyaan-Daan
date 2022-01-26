@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CONSTANT } from 'src/app/app.config';
 
 @Component({
@@ -19,6 +19,8 @@ export class NewRequestComponent implements OnInit {
   subjectDropdownError: String;
   classDropdownError: String;
 
+  @Output() notification: EventEmitter<any>;
+
 
   constructor() {
 
@@ -34,6 +36,8 @@ export class NewRequestComponent implements OnInit {
     this.subjectDropdownError = "";
     this.classDropdownError = "";
 
+    this.notification = new EventEmitter();
+
   }
 
   ngOnInit(): void {
@@ -45,8 +49,11 @@ export class NewRequestComponent implements OnInit {
     this.classes = this.constant.classes;
   }
 
-  submitForm(): void {
-    
+  sendRequest(): void {
+    this.notification.emit({
+      status: 'success',
+      requestId: '123455'
+    })
   }
 
 }
