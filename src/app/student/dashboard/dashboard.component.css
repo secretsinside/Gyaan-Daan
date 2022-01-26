@@ -36,3 +36,102 @@
 .error {
     background-color: red;
 }
+
+.accepted-request-title {
+    margin-left: 3%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.accepted-list, .pending-list {
+    margin: 2% 2% 2% 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.accepted-request-card, .pending-request-card {
+    width: 20%;
+    height: 10vh;
+    margin: 2% 1% 0 1%;
+}
+
+.accepted-request-card-day, .pending-request-card-day {
+    text-align: left;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 0 0 0;
+}
+
+.accepted-request-card-time, .pending-request-card-time {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 0 0;
+}
+
+.accepted-request-timing, .pending-request-timing {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accepted-request-detail, .pending-request-detail {
+    text-align: left;
+}
+
+.accepted-request-card-subject, .pending-request-card-subject {
+    font-weight: bold;
+    margin: 0 0 0 0;
+    background-color: #caf1fba1;
+    padding: 2%;
+    border-radius: 5px;
+}
+
+.accepted-request-card-phone, .accepted-request-card-name {
+    margin: 0 0 0 0;
+}
+
+.reject-request-button {
+    color: red;
+}
+
+.accept-request-button {
+    color: green;
+}
+
+.accept-request-button, .reject-request-button {
+    transform: scale(1.5);
+}
+
+.pending-request-actions {
+    margin: 2%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+@media screen and (max-width: 700px) {
+    .accepted-request-card-day, .pending-request-card-day {
+        font-size: 1.3em;
+    }
+
+    .accepted-request-card-time, .pending-request-card-time {
+        font-size: 0.7em;
+    }
+
+    .accepted-request-card, .pending-request-card {
+        width: 30%;
+        margin: 1% 5% 1% 5%;
+    }
+
+    .accepted-request-title {
+        margin-left: 7%;
+    }
+
+    .accepted-request-card-phone, .accepted-request-card-name {
+        font-size: 0.8em;
+    }
+}
+    

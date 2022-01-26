@@ -1,0 +1,54 @@
+{
+    "responseInfo": [
+        {
+            "firstName": "Rama",
+            "lastName": "Sharma",
+            "username": "rama@ymail.com",
+            "phoneNumber": "+91-8882188821",
+            "subject": "Maths",
+            "slots": {
+                "Mon": [ "14:00-16:00" ]
+            }
+        },
+        {
+            "firstName": "Vandana",
+            "lastName": "Hemant",
+            "username": "vandana@ymail.com",
+            "phoneNumber": "+91-9000090000",
+            "subject": "Science",
+            "slots": {
+                "Thu": [ "20:00-21:00" ]
+            }
+        },
+        {
+            "firstName": "Sujata",
+            "lastName": "Raina",
+            "username": "sujata@ymail.com",
+            "phoneNumber": "+91-9988226611",
+            "subject": "English",
+            "slots": {
+                "Tue": [ "19:00-20:00" ]
+            }
+        },
+        {
+            "firstName": "Ramshil",
+            "lastName": "Dey",
+            "username": "ramshil@ymail.com",
+            "phoneNumber": "+91-9123491234",
+            "subject": "English",
+            "slots": {
+                "Tue": [ "19:30-20:30" ]
+            }
+        },
+        {
+            "firstName": "Abhimanyu",
+            "lastName": "",
+            "username": "abhi@ymail.com",
+            "phoneNumber": "+91-6566665666",
+            "subject": "Physics",
+            "slots": {
+                "Sat": [ "13:00-14:00" ]
+            }
+        }
+    ]
+}

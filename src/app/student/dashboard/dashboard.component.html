@@ -9,17 +9,81 @@
 </div>
 
 <div class="dashboard-content">
-    <button mat-raised-button *ngIf="!seeRequestStatus"
-        class="request-history-button"
-        (click)="seeRequestStatus = true;">Request status
-    </button>
+    <div class="student-content" *ngIf="userDetail.userType == 'student' ">
+        <button mat-raised-button *ngIf="!seeRequestStatus"
+            class="request-history-button"
+            (click)="seeRequestStatus = true;">Request status
+        </button>
 
-    <button mat-raised-button *ngIf="seeRequestStatus"
-        class="request-history-button"
-        (click)="seeRequestStatus = false;">Back
-    </button>
-    <mat-divider class="divider"></mat-divider>
-    <app-new-request *ngIf="userDetail.userType == 'student' && !seeRequestStatus"
-        (notification) = "raiseNotification($event)"></app-new-request>
-    <app-past-request *ngIf="userDetail.userType == 'student' && seeRequestStatus"></app-past-request>
+        <button mat-raised-button *ngIf="seeRequestStatus"
+            class="request-history-button"
+            (click)="seeRequestStatus = false;">Back
+        </button>
+        <mat-divider class="divider"></mat-divider>
+        <app-new-request *ngIf="!seeRequestStatus"
+            (notification) = "raiseNotification($event)"></app-new-request>
+
+        <app-past-request *ngIf="seeRequestStatus"></app-past-request>
+    </div>
+    <div class="volunteer-content" *ngIf="userDetail.userType == 'volunteer' ">
+
+        <button mat-raised-button
+            *ngIf="!seePendingRequest"
+            matBadge="+1" 
+            [matBadgeHidden]="hideNotification"
+            class="pending-request-button"
+            (click)="openPendingRequestWindow()">
+            Request
+        </button>
+        <button mat-raised-button
+            *ngIf="seePendingRequest"
+            (click)="openAcceptedRequestWindow()">
+            Back
+        </button>
+
+        <mat-divider class="divider"></mat-divider>
+
+        <div *ngIf="!seePendingRequest" class="accepted-request-container">
+            <div class="accepted-request-title">
+                Upcoming sessions
+            </div>
+            <div class="accepted-list">
+                <mat-card *ngFor="let a of acceptedRequest"
+                    class="accepted-request-card">
+                    <div *ngFor="let k of a.slots | keyvalue" class="accepted-request-timing">
+                        <span class="accepted-request-card-day">{{ k.key }}</span>
+                        <span class="accepted-request-card-time">{{ k.value}}</span>
+                    </div>
+                    <div class="accepted-request-detail">
+                        <p class="accepted-request-card-subject">{{ a.subject }}</p>
+                        <p class="accepted-request-card-name">{{ a.firstName + ' ' + a.lastName }}</p>
+                        <p class="accepted-request-card-phone">{{ a.phoneNumber }}</p>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+
+        <div *ngIf="seePendingRequest" class="pending-request-container">
+            <div class="pending-list">
+                <mat-card *ngFor="let p of pendingRequest"
+                    class="pending-request-card">
+                    <div *ngFor="let k of p.slots | keyvalue" class="pending-request-timing">
+                        <span class="pending-request-card-day">{{ k.key }}</span>
+                        <span class="pending-request-card-time">{{ k.value}}</span>
+                    </div>
+                    <div class="pending-request-detail">
+                        <p class="pending-request-card-subject">{{ p.subject }}</p>
+                    </div>
+                    <div class="pending-request-actions">
+                        <button class="reject-request-button" mat-icon-button>
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                        <button class="accept-request-button" mat-icon-button>
+                            <mat-icon>check_circle</mat-icon>
+                        </button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
 </div>
