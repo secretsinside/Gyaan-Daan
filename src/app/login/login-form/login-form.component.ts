@@ -79,35 +79,35 @@ export class LoginFormComponent implements OnInit {
   }
 
   submitForm(): void {
-    // if(this.isFormValid()) {
-    //   let request = this.prepareRequest();
-    //   console.log(request);
+    if(this.isFormValid()) {
+      let request = this.prepareRequest();
+      console.log(request);
       
-    if(this.isUserStudent){
-      this.router.navigate(["/student"], {
-        state: {
-          "userEmail": this.userEmail,
-          "userType": 'student'
-        }
-      });
-    }else{
-      this.router.navigate(["/volunteer"], {
-        state: {
-          "userEmail": this.userEmail,
-          "userType": 'volunteer'
-        }
-      });
-    }
+      if(this.isUserStudent){
+        this.router.navigate(["/student"], {
+          state: {
+            "userEmail": this.userEmail,
+            "userType": 'student'
+          }
+        });
+      }else{
+        this.router.navigate(["/volunteer"], {
+          state: {
+            "userEmail": this.userEmail,
+            "userType": 'volunteer'
+          }
+        });
+      }
     
-      // this.loginSignupService.loginUser(request).subscribe(
-      //   (data: any) => {
+      this.loginSignupService.loginUser(request).subscribe(
+        (data: any) => {
 
-      //   },
-      //   (error: any) => {
+        },
+        (error: any) => {
 
-      //   }
-      // )
-    // }
+        }
+      )
+    }
   }
 
   prepareRequest(): any {

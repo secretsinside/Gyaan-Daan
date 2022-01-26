@@ -119,7 +119,23 @@ export class SignupFormComponent implements OnInit {
   }
 
   submitForm(): void {
-    this.router.navigate(['/student']);
+    // this.router.navigate(['/student']);
+
+    if(this.isUserStudent){
+      this.router.navigate(["/student"], {
+        state: {
+          "userEmail": this.userEmail,
+          "userType": 'student'
+        }
+      });
+    }else{
+      this.router.navigate(["/volunteer"], {
+        state: {
+          "userEmail": this.userEmail,
+          "userType": 'volunteer'
+        }
+      });
+    }
   }
 
 }

@@ -71,4 +71,16 @@ export class DashboardComponent implements OnInit {
     this.seePendingRequest = false;
   }
 
+  rejectRequest(event: any, requestId: any): void {
+    if(event.target.innerText == 'cancel') {
+      this.pendingRequest = this.pendingRequest.filter((e: any)=> {
+        return (e.requestId != requestId);
+      });
+    }else{
+      this.pendingRequest = this.pendingRequest.filter((e: any)=> {
+        return (e.requestId != requestId);
+      });
+    }
+  }
+
 }

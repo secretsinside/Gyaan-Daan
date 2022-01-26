@@ -66,7 +66,8 @@
         <div *ngIf="seePendingRequest" class="pending-request-container">
             <div class="pending-list">
                 <mat-card *ngFor="let p of pendingRequest"
-                    class="pending-request-card">
+                    class="pending-request-card"
+                    (click)="rejectRequest($event, p.requestId)">
                     <div *ngFor="let k of p.slots | keyvalue" class="pending-request-timing">
                         <span class="pending-request-card-day">{{ k.key }}</span>
                         <span class="pending-request-card-time">{{ k.value}}</span>
@@ -75,10 +76,12 @@
                         <p class="pending-request-card-subject">{{ p.subject }}</p>
                     </div>
                     <div class="pending-request-actions">
-                        <button class="reject-request-button" mat-icon-button>
+                        <button class="reject-request-button"
+                            mat-icon-button>
                             <mat-icon>cancel</mat-icon>
                         </button>
-                        <button class="accept-request-button" mat-icon-button>
+                        <button class="accept-request-button"
+                            mat-icon-button>
                             <mat-icon>check_circle</mat-icon>
                         </button>
                     </div>
